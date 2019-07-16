@@ -2,20 +2,16 @@
 <html>
 <script src="https://aframe.io/releases/0.9.1/aframe.min.js"></script>
 <script src="https://cdn.rawgit.com/jeromeetienne/AR.js/1.7.2/aframe/build/aframe-ar.js"></script>
+<script src="//feed.surfing-waves.com/js/rss-feed.js"></script>
 
 
 <body style='margin : 0px; overflow: hidden;'>
 
-<a-scene embedded arjs='debugUIEnabled: false; patternRatio: 0.90; sourceType: webcam; trackingMethod: best;'> 
-  <a-marker preset="custom" type="pattern" url="TB_9.patt">
-   
-<a-image id="test" src="dp_page.png" position="0 0 0" rotation="-90 0 0" width="" height="" opacity="1" transparent="true" alpha-test="0.2" shader="standard" scale="1 1 1" visible="" material="" geometry="">
+AFRAME.registerComponent('rss_widget', {
+  schema: {type: 'text/javascript'},
 
-
-<!-- start sw-rss-feed code --> 
-<script type="text/javascript"> 
-<!-- 
-rssfeed_url = new Array(); 
+  init: function () {
+    rssfeed_url = new Array(); 
 rssfeed_url[0]="https://perkinswill.com/news/feed/";  
 rssfeed_frame_width="230"; 
 rssfeed_frame_height="260"; 
@@ -51,12 +47,18 @@ rssfeed_item_description_link_color="#333";
 rssfeed_item_description_tag="off"; 
 rssfeed_no_items="0"; 
 rssfeed_cache = "2613f82c21f791577dcf66bbe02b3abe"; 
-//--> 
-</script> 
-<script type="text/javascript" src="//feed.surfing-waves.com/js/rss-feed.js"></script> 
-<!-- The link below helps keep this service FREE, and helps other people find the SW widget. Please be cool and keep it! Thanks. --> 
-<div style="color:#ccc;font-size:10px; text-align:right; width:230px;">powered by <a href="https://surfing-waves.com" rel="noopener" target="_blank" style="color:#ccc;">Surfing Waves</a></div> 
-<!-- end sw-rss-feed code -->
+  }
+});
+
+<a-scene embedded arjs='debugUIEnabled: false; patternRatio: 0.90; sourceType: webcam; trackingMethod: best;'> 
+  <a-marker preset="custom" type="pattern" url="TB_9.patt">
+   
+<a-scene rss_widget>
+  <a-box rss_widget></a-box>
+</a-scene>
+
+
+
 
 
 
