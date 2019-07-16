@@ -6,7 +6,7 @@
 
 
 <body style='margin : 0px; overflow: hidden;'>
-
+<script>
 AFRAME.registerComponent('rss_widget', {
   schema: {type: 'text/javascript'},
 
@@ -49,12 +49,11 @@ rssfeed_no_items="0";
 rssfeed_cache = "2613f82c21f791577dcf66bbe02b3abe"; 
   }
 });
-
+</script>
 <a-scene embedded arjs='debugUIEnabled: false; patternRatio: 0.90; sourceType: webcam; trackingMethod: best;'> 
   <a-marker preset="custom" type="pattern" url="TB_9.patt">
    
-<a-scene rss_widget>
-  <a-box rss_widget></a-box>
+<a-scene>
 </a-scene>
 
 
