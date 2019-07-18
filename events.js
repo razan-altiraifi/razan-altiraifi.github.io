@@ -11,7 +11,8 @@ AFRAME.registerComponent('markerhandler', {
 			window.open("https://www.perkinswill.com", "_system");
 			
 			if (aEntity && intersectedElement === aEntity) {
-                const scale = aEntity.getAttribute('scale');
+                window.open("https://www.perkinswill.com", "_system");
+				const scale = aEntity.getAttribute('scale');
                 Object.keys(scale).forEach((key) => scale[key] = scale[key] + 1);
                 aEntity.setAttribute('scale', scale);
 				
